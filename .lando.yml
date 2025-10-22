@@ -1,0 +1,52 @@
+name: lrl-app
+recipe: laravel
+config:
+  php: '8.3'
+  webroot: public
+  cache: redis
+  database: mariadb
+# excludes:
+#   - vendor
+#   - node_modules
+
+proxy:
+  appserver:
+    - lrl-app.lndo.site
+  mailhog:
+    - mail.lrl-app.lndo.site
+  pma:
+    - pma.lrl-app.lndo.site
+
+services:
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+    config:
+      config: lando/pma.php
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  node:
+    type: node:22
+  redis:
+    type: redis:5
+    persist: false
+    portforward: true
+
+tooling:
+  npm:
+    service: node
+  redis-cli:
+    service: redis
+  phpstan:
+    service: appserver
+    cmd: /app/vendor/bin/phpstan
+
+events:
+  post-start:
+    - composer install
+    - php artisan migrate
+
+

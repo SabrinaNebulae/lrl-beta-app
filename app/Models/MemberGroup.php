@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class MemberGroup extends Model
+{
+    protected $fillable = [
+        'name',
+        'description'
+    ];
+
+    public static function getAttributeLabel(string $attribute): string
+    {
+        return __('member_groups.fields.' . $attribute);
+    }
+
+    public function members(): HasMany
+    {
+        return $this->hasMany(Member::class);
+    }
+}

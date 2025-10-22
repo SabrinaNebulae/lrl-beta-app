@@ -1,11 +1,12 @@
-# LRL APP - Centralized Portal with Laravel & Keycloak SSO
+# LRL APP - Centralized Portal with Laravel, React & Keycloak SSO
 
-This project is a **centralized portal application** built with **Laravel 12**, designed to provide a seamless and secure entry point for both **end users** and **administrators**.
+This project is a **centralized portal application** built with **Laravel 12 & React19**, designed to provide a seamless and secure entry point for both **end users** and **administrators**.
 
 - 🌐 **Front Office (Users)**
-    - Authentication via **Keycloak SSO (OIDC)**
-    - Unified dashboard to access external applications (cloud storage, mailing tools, file sharing, etc.)
-    - Role-based access control synced from Keycloak
+      - Build on React19 
+      - (V2) Authentication via **Keycloak SSO (OIDC)**
+      - Unified dashboard to access external applications (cloud storage, mailing tools, file sharing, etc.)
+      - Role-based access control synced from Keycloak
 - 🛠 **Back Office (Admins)**
     - Authentication handled **locally in Laravel** (separate from Keycloak)
     - Built with **FilamentPHP** for a modern and intuitive admin panel
@@ -16,8 +17,10 @@ This project is a **centralized portal application** built with **Laravel 12**, 
     - Support for MFA, Single Logout, and audit logging
 - ⚡ **Tech Stack Highlights**
     - Laravel 12 (PHP 8.3)
-    - Blade + Livewire (front office UI)
-    - RestFul API (Dolibarr Bridge)
+    - Blade + Livewire (back office UI)
+    - React19 (front office UI)
+    - TailwindCSS (UI framework)
+    - Keycloak SSO (OIDC)
     - FilamentPHP (admin panel)
     - Redis (cache, sessions, queues)
     - MySQL (PostgreSQL coming soon)

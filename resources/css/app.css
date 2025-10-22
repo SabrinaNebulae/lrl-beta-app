@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans: 'Figtree', 'Inter', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+
+    --radius: 0.5rem;
+}
+
+:root {
+    --background: #f9f9f9;
+    --foreground: #0a0a0a;
+    --card: #ffffff;
+    --card-foreground: #0a0a0a;
+
+    --primary: #f5a623;
+    --primary-foreground: #0a0a0a;
+
+    --secondary: #f48fb1;
+    --secondary-foreground: #0a0a0a;
+
+    --accent: #00473e;
+    --accent-foreground: #ffffff;
+
+    --border: #e5e5e5;
+    --input: #e5e5e5;
+    --ring: #d4d4d4;
+
+    --chart-1: #f5a623; /* orange */
+    --chart-2: #f48fb1; /* rose */
+    --chart-3: #ffffff; /* blanc */
+}
+
+.dark {
+    --background: #0a0a0a;
+    --foreground: #f9f9f9;
+    --card: #171717;
+    --card-foreground: #f9f9f9;
+
+    --primary: #007c6c; /* vert plus clair */
+    --primary-foreground: #0a0a0a;
+
+    --secondary: #2c2c2c;
+    --secondary-foreground: #f9f9f9;
+
+    --accent: #f48fb1;
+    --accent-foreground: #171717;
+
+    --border: #2c2c2c;
+    --input: #2c2c2c;
+    --ring: #6f6f6f;
+
+    --chart-1: #f48fb1;
+    --chart-2: #ffb300;
+    --chart-3: #f9f9f9;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground font-sans;
+    }
+
+    h1, h2, h3, h4, h5 {
+        @apply text-primary font-semibold;
+    }
+
+    h1 {
+        font-size: var(--text-2xl);
+    }
+
+    h2 {
+        font-size: var(--text-xl);
+    }
+
+    h3 {
+        font-size: var(--text-lg);
+    }
+
+    a {
+        color: var(--color-blue-600);
+        text-decoration-line: underline;
+    }
+
+    button {
+        @apply bg-white border border-black shadow-sm text-black px-4 py-2 rounded-md hover:shadow-md transition;
+    }
+}
+
