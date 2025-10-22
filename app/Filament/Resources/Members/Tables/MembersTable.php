@@ -73,9 +73,9 @@ class MembersTable
                         'cancelled' => Member::getAttributeLabel('cancelled'),
                         'excluded' => Member::getAttributeLabel('excluded'),
                     ]),
-                Filter::make('group.name')
-                ->label(Member::getAttributeLabel('group_id'))
-
+                SelectFilter::make('group.name')
+                    ->label(Member::getAttributeLabel('group_id'))->multiple()
+                    ->relationship('group', 'name'),
             ])
             ->recordActions([
                 EditAction::make(),

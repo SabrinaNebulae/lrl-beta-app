@@ -31,7 +31,7 @@ class MembershipForm
                                     ->headerActions([
                                         Action::make('view-profile')
                                             ->icon('heroicon-o-user')
-                                            ->label('Voir le profil')
+                                            ->label('Voir le profil du membre')
                                             ->action(function (Membership $record) {
                                                 return redirect()->route('filament.admin.resources.members.edit', ['record' => $record->member_id]);
                                             }),

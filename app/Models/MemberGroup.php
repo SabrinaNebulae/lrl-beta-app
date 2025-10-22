@@ -9,7 +9,8 @@ class MemberGroup extends Model
 {
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'identifier'
     ];
 
     public static function getAttributeLabel(string $attribute): string
