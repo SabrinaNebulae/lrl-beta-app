@@ -19,8 +19,4 @@ class Package extends Model
         return __('packages.fields.' . $attribute);
     }
 
-    public function memberships(): HasMany
-    {
-        return $this->hasMany(Membership::class);
-    }
 }

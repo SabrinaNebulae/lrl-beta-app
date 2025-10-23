@@ -20,6 +20,6 @@ class MemberGroup extends Model
 
     public function members(): HasMany
     {
-        return $this->hasMany(Member::class);
+        return $this->hasMany(Member::class, 'group_id');
     }
 }

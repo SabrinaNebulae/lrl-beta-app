@@ -37,9 +37,9 @@ class Membership extends Model
         return $this->belongsTo(User::class, 'admin_id');
     }
 
-    public function package(): HasOne
+    public function package(): BelongsTo
     {
-        return $this->hasOne(Package::class);
+        return $this->belongsTo(Package::class);
     }
 
     public function services(): BelongsToMany

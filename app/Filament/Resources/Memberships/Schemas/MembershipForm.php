@@ -50,6 +50,7 @@ class MembershipForm
                                             ->label(Membership::getAttributeLabel('package_id'))
                                             ->placeholder(Membership::getAttributeLabel('select_package'))
                                             ->relationship('package', 'name')
+                                            ->required()
                                             ->default(null),
                                         Select::make('payment_status')
                                             ->label(Membership::getAttributeLabel('payment_status'))
