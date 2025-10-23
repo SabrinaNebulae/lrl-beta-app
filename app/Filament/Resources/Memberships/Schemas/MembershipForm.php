@@ -4,11 +4,9 @@ namespace App\Filament\Resources\Memberships\Schemas;
 
 use App\Models\Membership;
 use App\Models\Service;
-use App\Models\User;
 use Filament\Actions\Action;
-use Filament\Support\Facades\FilamentView;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
@@ -67,14 +65,22 @@ class MembershipForm
                                     ->columns(2),
 
                                 Section::make('Services')
-                                    ->schema(function () {
+                                    ->schema([
+                                        CheckboxList::make('services')
+                                            ->label('Services activés')
+                                            ->helperText('Sélectionne les services que ce membre peut utiliser.')
+                                            ->options(Service::all()->pluck('name', 'id'))
+                                            ->relationship('services', 'name')
+                                            ->columns(2)
+                                    ])
+                                    /*->schema(function () {
                                         return Service::all()->map(function ($service) {
                                             return Toggle::make("services_sync.{$service->id}")
                                                 ->label($service->name)
                                                 ->default(false)
                                                 ->helperText("Active ou désactive le service {$service->name}");
                                         })->toArray();
-                                    })
+                                    })*/
 
                             ])
                             ->columnSpan(3),

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Service extends Model
 {
@@ -17,5 +18,10 @@ class Service extends Model
     public static function getAttributeLabel(string $attribute): string
     {
         return __('services.fields.' . $attribute);
+    }
+
+    public function memberships() : BelongsToMany
+    {
+        return $this->belongsToMany(Membership::class, 'services_memberships', 'service_id', 'membership_id');
     }
 }

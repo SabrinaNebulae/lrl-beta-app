@@ -7,6 +7,7 @@ use App\Filament\Resources\Memberships\Pages\EditMembership;
 use App\Filament\Resources\Memberships\Pages\ListMemberships;
 use App\Filament\Resources\Memberships\Schemas\MembershipForm;
 use App\Filament\Resources\Memberships\Tables\MembershipsTable;
+use App\Filament\Resources\Memberships\Widgets\MembershipsChart;
 use App\Models\Membership;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -56,5 +57,12 @@ class MembershipResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return Membership::getAttributeLabel('memberships');
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            MembershipsChart::class,
+        ];
     }
 }

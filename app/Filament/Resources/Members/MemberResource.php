@@ -7,6 +7,7 @@ use App\Filament\Resources\Members\Pages\EditMember;
 use App\Filament\Resources\Members\Pages\ListMembers;
 use App\Filament\Resources\Members\Schemas\MemberForm;
 use App\Filament\Resources\Members\Tables\MembersTable;
+use App\Filament\Resources\Members\Widgets\MemberCount;
 use App\Models\Member;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -56,6 +57,13 @@ class MemberResource extends Resource
     public static function getPluralModelLabel(): string
     {
         return Member::getAttributeLabel('members');
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            MemberCount::class,
+        ];
     }
 
 }
