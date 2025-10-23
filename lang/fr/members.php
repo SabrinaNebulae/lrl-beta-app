@@ -32,5 +32,11 @@ return [
         'created_at' => 'Créé le',
         'updated_at' => 'Mis à jour le',
         'deleted_at' => 'Supprimé le',
+        'widgets' => [
+            'stats' => [
+                'name' => 'Nouveaux Membres',
+                'description' => 'Nombre de nouveaux membres par jour',
+            ]
+        ]
     ],
 ];

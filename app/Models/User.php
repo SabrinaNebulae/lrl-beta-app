@@ -48,6 +48,18 @@ class User extends Authenticatable
         ];
     }
 
+
+    public static function getAttributeLabel(string $attribute): string
+    {
+        return __("users.fields.' . $attribute");
+    }
+
+    /*public static function getRoleLabel(string $role): string
+    {
+        return __("roles.fields.' . $role");
+    }*/
+
+
     public function members(): hasMany
     {
         return $this->hasMany(Member::class);

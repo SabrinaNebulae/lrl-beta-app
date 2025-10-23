@@ -2,13 +2,12 @@
 
 return [
     'fields' => [
-        'user' => 'Utilisateur',
-        'users' => 'Utilisateurs',
-        'name' => 'Nom',
+        'user' => 'User',
+        'users' => 'Users',
+        'name' => 'Name',
         'email' => 'Email',
-        'email_verified_at' => 'Email vérifié le',
-        'password' => '',
-        'password_confirmation' => '',
-        'role' => 'Rôle'
+        'email_verified_at' => 'Email verified at',
+        'password' => 'Password',
+        'role' => 'Role'
     ]
 ];

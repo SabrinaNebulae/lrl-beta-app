@@ -18,6 +18,8 @@ class MembershipResource extends Resource
 {
     protected static ?string $model = Membership::class;
 
+    protected static string|null|\UnitEnum $navigationGroup = 'Administration';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedIdentification;
 
     public static function form(Schema $schema): Schema

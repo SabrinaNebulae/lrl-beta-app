@@ -20,6 +20,8 @@ class PackageResource extends Resource
 {
     protected static ?string $model = Package::class;
 
+    protected static string|null|\UnitEnum $navigationGroup = 'Modules';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedShoppingCart;
 
     public static function form(Schema $schema): Schema

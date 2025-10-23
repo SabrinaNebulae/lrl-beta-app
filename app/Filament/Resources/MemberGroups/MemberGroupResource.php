@@ -18,6 +18,8 @@ class MemberGroupResource extends Resource
 {
     protected static ?string $model = MemberGroup::class;
 
+    protected static string|null|\UnitEnum $navigationGroup = 'Administration';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeEuropeAfrica;
 
     public static function form(Schema $schema): Schema

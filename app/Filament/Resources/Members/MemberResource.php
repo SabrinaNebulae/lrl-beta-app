@@ -18,6 +18,8 @@ class MemberResource extends Resource
 {
     protected static ?string $model = Member::class;
 
+    protected static string|null|\UnitEnum $navigationGroup = 'Administration';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     public static function form(Schema $schema): Schema
@@ -55,4 +57,5 @@ class MemberResource extends Resource
     {
         return Member::getAttributeLabel('members');
     }
+
 }

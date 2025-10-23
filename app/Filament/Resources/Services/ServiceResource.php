@@ -18,6 +18,8 @@ class ServiceResource extends Resource
 {
     protected static ?string $model = Service::class;
 
+    protected static string|null|\UnitEnum $navigationGroup = 'Modules';
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPuzzlePiece;
 
     public static function form(Schema $schema): Schema
