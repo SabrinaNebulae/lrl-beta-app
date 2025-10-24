@@ -20,4 +20,8 @@ return [
     'partial' => 'Partially paid',
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
+    'subscription' => [
+        'success' => 'Your subscription has been successfully sent. We will contact you as soon as possible.',
+        'failed' => 'An error occurred while sending your subscription.',
+    ]
 ];

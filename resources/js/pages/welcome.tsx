@@ -20,7 +20,7 @@ export default function Welcome() {
                 />
             </Head>
             <div
-                className="flex min-h-screen flex-col items-center bg-[#F5F5F5] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
+                className="flex min-h-screen flex-col items-center bg-[#F5F5F5] text-[#1b1b18] lg:justify-center dark:bg-[#0a0a0a]">
                 <NavGuestLayout />
                 <section className="flex items-center justify-center gap-4 w-full max-w-[335px] lg:max-w-7xl">
                     <div className="flex w-full items-center justify-center gap-4">
@@ -42,8 +42,77 @@ export default function Welcome() {
                     </div>
                 </section>
             </div>
+            <div
+                className="flex flex-col items-center bg-[#F5F5F5] text-[#1b1b18] lg:justify-center dark:bg-[#0a0a0a]">
 
-            <section className="flex bg-accent items-center justify-center p-6 w-full max-w-[335px] lg:max-w-7xl lg:justify-center lg:p-8">TEST</section>
+                <section className="w-full bg-accent pr-0 py-16">
+                    <div className="flex flex-col items-center gap-8 w-full max-w-7xl mx-auto">
+                        <h2 className="text-3xl font-bold text-center mb-10">Nos services numériques éthiques, libres,
+                            ouverts et locaux</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {[
+                                {
+                                    title: 'Boîte mail',
+                                    description: 'Service de messagerie électronique sécurisé et respectueux de votre vie privée'
+                                },
+                                {
+                                    title: 'Cloud (Nextcloud)',
+                                    description: 'Stockage en ligne et collaboration avec vos données hébergées localement'
+                                },
+                                {title: 'File2link', description: 'Partage de fichiers simplifié et sécurisé'},
+                                {
+                                    title: 'Hébergement web',
+                                    description: 'Solutions d\'hébergement web éthiques et performantes'
+                                },
+                                {
+                                    title: 'Sondage',
+                                    description: 'Créez et partagez des sondages en ligne en toute confidentialité'
+                                },
+                                {
+                                    title: 'Liste de diffusion Mail',
+                                    description: 'Gérez vos communications de groupe efficacement'
+                                }
+                            ].map((service, index) => (
+                                <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+                                    <p>{service.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                </section>
+
+                <section className="w-full max-w-7xl py-16 bg-gray-50 dark:bg-gray-900">
+                    <h2 className="text-3xl font-bold text-center mb-10">GAFAM : Quels dangers ?</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 className="text-xl font-semibold mb-3">Surveillance massive</h3>
+                            <p>Les GAFAM collectent et exploitent vos données personnelles à des fins commerciales</p>
+                        </div>
+                        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <h3 className="text-xl font-semibold mb-3">Monopole numérique</h3>
+                            <p>Concentration excessive du pouvoir et dépendance aux services centralisés</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="w-full max-w-7xl py-16">
+                    <div className="flex flex-col lg:flex-row items-center gap-8">
+                        <div className="lg:w-1/2">
+                            <h2 className="text-3xl font-bold mb-6">Notre alternative : Le Retzien Libre</h2>
+                            <p className="mb-6">Une association locale engagée pour la promotion du logiciel libre et la
+                                protection de vos données personnelles.</p>
+                            <Link href={register()}>
+                                <Button variant="default">Rejoignez-nous</Button>
+                            </Link>
+                        </div>
+                        <div className="lg:w-1/2">
+                            <img src={illustrationImage} alt="Le Retzien Libre" className="rounded-lg"/>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </>
     );
 }

@@ -49,16 +49,19 @@ class DatabaseSeeder extends Seeder
                 'identifier' => 'custom',
                 'name' => 'Sur-mesure',
                 'description' => 'Calcul du nombre de mois restant dans l\'année',
+                'price' => '1.00'
             ],
             [
                 'identifier' => 'one-year',
                 'name' => 'Un an',
                 'description' => '12 mois à compter de la date de validation de l\'adhésion du membre',
+                'price' => '12.00'
             ],
             [
                 'identifier' => 'two-years',
                 'name' => 'Deux ans',
                 'description' => '24 mois à compter de la date de validation de l\'adhésion du membre',
+                'price' => '24.00'
             ]
         ];
 
@@ -68,6 +71,7 @@ class DatabaseSeeder extends Seeder
             ], [
                 'name' => $package['name'],
                 'description' => $package['description'],
+                'price' => $package['price'],
                 'is_active' => true,
             ]);
         }
@@ -79,35 +83,35 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Mail RoundCube',
                 'description' => 'Service de messagerie',
                 'url' => '#',
-                'icon' => 'fa-solid fa-envelope',
+                'icon' => 'mail',
             ],
             [
                 'identifier' => 'file2link',
                 'name' => 'File2Link',
                 'description' => 'Service de partage de fichiers',
                 'url' => '#',
-                'icon' => 'fa-solid fa-file-arrow-up',
+                'icon' => 'document-add',
             ],
             [
                 'identifier' => 'nextcloud',
                 'name' => 'Nextcloud',
                 'description' => 'Service de stockage de fichiers',
                 'url' => '#',
-                'icon' => 'fa-solid fa-cloud',
+                'icon' => 'cloud-upload',
             ],
             [
                 'identifier' => 'sympa',
                 'name' => 'Sympa',
                 'description' => 'Service de gestion de listes de diffusion',
                 'url' => '#',
-                'icon' => 'fa-solid fa-envelope-open-text',
+                'icon' => 'clipboard-list',
             ],
             [
                 'identifier' => 'webhosting',
                 'name' => 'Hébergement web',
                 'description' => 'Service d\'hébergement web',
                 'url' => '#',
-                'icon' => 'fa-solid fa-server',
+                'icon' => 'database',
             ]
         ];
 

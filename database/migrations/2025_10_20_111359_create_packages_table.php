@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('identifier')->unique();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->decimal('price', 10)->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();

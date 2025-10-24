@@ -448,7 +448,7 @@ contact.form = contactForm
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 export const membership = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -463,7 +463,7 @@ membership.definition = {
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 membership.url = (options?: RouteQueryOptions) => {
@@ -472,7 +472,7 @@ membership.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 membership.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -482,7 +482,7 @@ membership.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -492,7 +492,7 @@ membership.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 const membershipForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -502,7 +502,7 @@ const membershipForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'>
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 membershipForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -512,7 +512,7 @@ membershipForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> =
 
 /**
 * @see \App\Http\Controllers\Forms\MembershipFormController::membership
-* @see app/Http/Controllers/Forms/MembershipFormController.php:18
+* @see app/Http/Controllers/Forms/MembershipFormController.php:23
 * @route '/membership'
 */
 membershipForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({

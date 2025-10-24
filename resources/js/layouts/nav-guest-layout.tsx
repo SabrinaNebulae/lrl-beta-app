@@ -18,7 +18,7 @@ export default function NavGuestLayout() {
     return (
         <>
             <header
-                className="flex  justify-between mb-6 w-full max-w-[335px] text-sm not-has-[nav]:hidden lg:max-w-7xl">
+                className="flex  justify-between my-6 w-full max-w-[335px]  text-sm not-has-[nav]:hidden lg:max-w-7xl">
                 <div className="flex items-center justify-start">
                     <Link
                         href={home()}
