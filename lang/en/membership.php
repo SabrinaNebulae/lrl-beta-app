@@ -22,6 +22,6 @@ return [
     'updated_at' => 'Updated at',
     'subscription' => [
         'success' => 'Your subscription has been successfully sent. We will contact you as soon as possible.',
-        'failed' => 'An error occurred while sending your subscription.',
+        'error' => 'An error occurred while sending your subscription.',
     ]
 ];

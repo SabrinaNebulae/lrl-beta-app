@@ -49,7 +49,7 @@ class MembershipFormController extends Controller
 
             return redirect()
                 ->route('membership')
-                ->with('error', __('memberships.subscription.failed'));
+                ->with('error', __('memberships.subscription.error'));
         }
 
         return redirect()

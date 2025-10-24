@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Forms\ContactFormController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 

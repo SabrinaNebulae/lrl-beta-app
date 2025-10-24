@@ -27,7 +27,7 @@ return [
         'updated_at' => 'Mise à jour le',
         'subscription' => [
             'success' => 'Votre inscription a bien été envoyée. Nous vous recontacterons dans les plus brefs délais.',
-            'failed' => 'Une erreur est survenue lors de l\'envoi de votre inscription.',
+            'error' => 'Une erreur est survenue lors de l\'envoi de votre inscription.',
         ]
     ],
 

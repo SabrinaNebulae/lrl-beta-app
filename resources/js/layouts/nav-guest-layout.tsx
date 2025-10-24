@@ -67,12 +67,12 @@ export default function NavGuestLayout() {
                             </Link>
 
                             <Link
-                                className="bg-transparent border-0 shadow-none"
+                                className="border-3 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-10 px-4 py-2 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-2 transition delay-50 duration-200 ease-in-out font-bold"
                                 href={logout()}
                                 onClick={handleLogout}
                                 data-test="logout-button"
                             >
-                                <Button variant="secondary">Se déconnecter</Button>
+                                Se déconnecter
                             </Link>
                         </>
                     ) : (
