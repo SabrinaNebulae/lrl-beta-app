@@ -17,5 +17,9 @@ class ContactService
         $contact->fill($data);
         $contact->save();
 
+        // Envoyer un email à l'administrateur
+
+        return $contact;
+
     }
 }

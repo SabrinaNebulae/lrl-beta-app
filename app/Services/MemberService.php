@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\MemberRegistered;
 use App\Models\Member;
 use App\Models\MemberGroup;
 use App\Models\Package;
@@ -29,7 +30,6 @@ class MemberService
             $member->firstname = $data['firstname'];
             $member->email = $data['email'];
             $member->company = $data['company'] ?? null;
-            $member->date_of_birth = Carbon::parse($data['date_of_birth'])->format('Y-m-d H:i:s') ?? null;
             $member->address = $data['address'];
             $member->zipcode = $data['zipcode'];
             $member->city = $data['city'];
@@ -38,7 +38,7 @@ class MemberService
             $member->save();
         }
 
-        $package = Package::where('id', $data['package_id'])
+        $package = Package::where('identifier', $data['package'])
             ->where('is_active', true)
             ->firstOrFail();
 
@@ -47,11 +47,13 @@ class MemberService
             'status' => 'pending',
             'package_id' => $package->id ?? null,
             'amount' => $data['amount'],
-            'payment_status' => 'pending',
+            'payment_status' => 'unpaid',
 
         ]);
 
         // Notify Admin
+        $admin = Member::where('role', 'admin')->first();
+        event(new MemberRegistered($admin));
 
 
         return $member;

@@ -1,7 +1,5 @@
 import {useEffect, useState} from "react";
 import {Form, Head, usePage} from "@inertiajs/react";
-import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
-import {CheckCircle2} from "lucide-react";
 import {LoaderCircle} from 'lucide-react';
 import ContactFormController from "@/actions/App/Http/Controllers/Forms/ContactFormController";
 import {Label} from "@/components/ui/label";
@@ -19,28 +17,31 @@ import {
 } from "@/components/ui/select";
 import {Textarea} from "@/components/ui/textarea";
 import NavGuestLayout from "@/layouts/nav-guest-layout";
+import {PageProps} from "@/types";
+import {FlashMessage} from "@/components/flash-message";
 
 export default function Contact() {
-    const {flash} = usePage().props;
+    const {flash} = usePage().props as PageProps;
 
-    const [showSuccess, setShowSuccess] = useState(!!flash?.success);
+    const [showFlashMessage, setFlashMessage] = useState(!!flash);
 
     useEffect(() => {
-        if (flash?.success) {
-            setShowSuccess(true);
-            const timer = setTimeout(() => setShowSuccess(false), 5000);
+        if (flash) {
+            setFlashMessage(true);
+            const timer = setTimeout(() => setFlashMessage(false), 5000);
             return () => clearTimeout(timer);
         }
     }, [flash]);
+
 
     return (
         <>
             <Head title="Nous contacter"/>
             <div
-                className="flex min-h-screen flex-col items-center bg-[#F5F5F5] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
+                className="flex flex-col items-center bg-[#F5F5F5] p-6 text-[#1b1b18] lg:justify-center lg:p-8 dark:bg-[#0a0a0a]">
                 <NavGuestLayout/>
 
-                <div className="flex flex-col items-center justify-center gap-4">
+                <section className="flex flex-col h-screen items-center  mt-15 gap-4">
                     <div>
                         <h1>Nous contacter</h1>
                         <p>
@@ -48,15 +49,8 @@ export default function Contact() {
                         </p>
                     </div>
 
-                    {showSuccess && (
-                        <Alert className="border-green-500 bg-green-50 text-green-800">
-                            <CheckCircle2 className="h-5 w-5 text-green-600"/>
-                            <AlertTitle>Message envoyé !</AlertTitle>
-                            <AlertDescription>{flash.success}</AlertDescription>
-                        </Alert>
-
-                        // Clean form
-
+                    {showFlashMessage && (
+                        <FlashMessage messages={flash ?? {}} />
                     )}
 
                     <Form
@@ -68,7 +62,7 @@ export default function Contact() {
                             <div className="lg:w-5xl px-10">
                                 <div className="flex gap-6 w-full">
                                     <div className="w-1/2">
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="lastname">Nom*</Label>
                                             <Input
                                                 id="lastname"
@@ -86,7 +80,7 @@ export default function Contact() {
                                             />
                                         </div>
 
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="firstname">Prénom*</Label>
                                             <Input
                                                 id="firstname"
@@ -104,7 +98,7 @@ export default function Contact() {
                                             />
                                         </div>
 
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="email">Adresse Mail*</Label>
                                             <Input
                                                 id="email"
@@ -118,7 +112,7 @@ export default function Contact() {
                                             <InputError message={errors.email}/>
                                         </div>
 
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="address">Votre adresse postale</Label>
                                             <Input
                                                 id="address"
@@ -138,7 +132,7 @@ export default function Contact() {
                                     </div>
 
                                     <div className="w-1/2">
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="subject">Objet de votre demande*</Label>
                                             <Select name="subject" required>
                                                 <SelectTrigger tabIndex={5}>
@@ -156,9 +150,10 @@ export default function Contact() {
                                             </Select>
                                         </div>
 
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="message">Votre message</Label>
                                             <Textarea
+                                                className="h-28"
                                                 id="message"
                                                 name="message"
                                                 tabIndex={6}
@@ -167,7 +162,7 @@ export default function Contact() {
                                             />
                                         </div>
 
-                                        <div className="grid gap-2">
+                                        <div className="grid gap-2 my-4">
                                             <Label htmlFor="captcha">Captcha</Label>
                                             <Input
                                                 id="captcha"
@@ -197,7 +192,7 @@ export default function Contact() {
                             </div>
                         )}
                     </Form>
-                </div>
+                </section>
             </div>
         </>
     )

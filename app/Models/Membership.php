@@ -59,7 +59,7 @@ class Membership extends Model
 
     public static function getAttributeLabel(string $attribute): string
     {
-        return __("membership.fields.$attribute");
+        return __("memberships.fields.$attribute");
     }
 
     public function member(): BelongsTo

@@ -27,7 +27,7 @@ class ContactFormController extends Controller
     {
         $validated = $request->validated();
         try {
-            $contact = $this->contactService->registerNewContactRequest($validated);
+            $this->contactService->registerNewContactRequest($validated);
         } catch (\Throwable $e) {
             \Log::error('Erreur lors de la création d\'un contact', [
                 'error' => $e->getMessage(),

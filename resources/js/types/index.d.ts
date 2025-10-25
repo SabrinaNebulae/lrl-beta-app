@@ -41,3 +41,29 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface FlashMessages {
+    success?: string;
+    error?: string;
+    warning?: string;
+    info?: string;
+}
+
+export interface Plans {
+    id: number;
+    identifier: string;
+    name: string;
+    price: number;
+    description?: string,
+    is_active: boolean;
+}
+
+
+export interface PageProps {
+    flash?: FlashMessages;
+    auth?: Auth;
+    plans?: Plans[];
+
+    [key: string]: unknown;
+}
+

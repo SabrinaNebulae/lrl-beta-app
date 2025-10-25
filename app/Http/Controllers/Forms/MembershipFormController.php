@@ -4,13 +4,11 @@ namespace App\Http\Controllers\Forms;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Forms\MembershipRequest;
-use App\Models\Member;
 use App\Models\Membership;
 use App\Models\Package;
 use App\Services\MemberService;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class MembershipFormController extends Controller
@@ -25,7 +23,7 @@ class MembershipFormController extends Controller
         return Inertia::render('forms/membership', [
             'plans' => Package::query()
                 ->where('is_active', true)
-                ->select('id', 'name', 'price', 'description')
+                ->select('id', 'identifier', 'name', 'price', 'description')
                 ->get()
         ]);
     }
@@ -36,6 +34,7 @@ class MembershipFormController extends Controller
      */
     public function store(MembershipRequest $request): RedirectResponse
     {
+        dd($request->validated());
         $validated = $request->validated();
 
         try {
@@ -49,11 +48,11 @@ class MembershipFormController extends Controller
 
             return redirect()
                 ->route('membership')
-                ->with('error', __('memberships.subscription.error'));
+                ->with('error', Membership::getAttributeLabel('memberships.subscription.error'));
         }
 
         return redirect()
             ->route('membership')
-            ->with('success', __('memberships.subscription.success'));
+            ->with('success', Membership::getAttributeLabel('memberships.subscription.success'));
     }
 }
